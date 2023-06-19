@@ -1,0 +1,110 @@
+* {
+  font-family: Arial;
+}
+
+
+/* Quadro */
+
+.box-one {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 3%;
+  
+}
+
+.box-one h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.box-one form {
+  margin-top: 20px;
+}
+
+.box-one label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.box-one input[type="text"],
+.box-one input[type="email"],
+.box-one input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.box-one button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #255885;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+
+/* Configurações do formulário */
+
+#tituloArea {
+  font-weight: bold;
+  color: #255885;
+  font-family: Arial;
+}
+
+h5 {
+  opacity: 70%;
+  padding-bottom: 7%;
+}
+
+#espacoForm {
+  padding-bottom: 5%;
+}
+
+form {
+  text-align: left;
+}
+
+input {
+  font-family: Arial;
+  font-size: medium;
+  padding: 1%;
+  width: 10%;
+}
+
+/* Botões */
+
+.box-one button[type="submit"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #255885;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  
+  border-radius: 5px;
+  margin-top: 1%;
+  cursor: pointer;
+}
+
+.box-one button[type="submit"]:hover {
+  background-color: #03738C
+}
+
+#botao-voltar {
+  background-color: #40A8C4;
+}
+
+#botao-voltar:hover {
+  background-color: #04D9D9;
+}

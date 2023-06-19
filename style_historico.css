@@ -1,0 +1,92 @@
+.meu-botao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #255885;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  margin-top: 1%;
+  margin-left: 2%;
+  cursor: pointer;
+}
+
+.conteudo-botao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.conteudo-botao img {
+  width: 35px;
+  height: 33px;
+  margin-right: 10px;
+}
+
+.conteudo-botao span {
+  font-weight: bold;
+  font-size: small;
+  font-size: 20px;
+}
+
+.box-one {  
+  margin-top: -35%;    
+}
+
+table {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+thead th {
+  background-color: #255885;
+  color: #fff;
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tbody td {
+  border: 1px solid #ddd;
+  text-align: left;
+  background-color: #fff;
+  padding: 8px;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+button[type=submit],
+button[type="button"] {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  background-color: #4aa4ee;
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+
+button:hover {
+  background-color: #0062cc;
+}
+
+.voltar-button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+}

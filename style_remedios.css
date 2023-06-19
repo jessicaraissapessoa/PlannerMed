@@ -1,0 +1,522 @@
+/* Navegador */
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+body{
+background-color: #F2F2F2;
+}
+
+#nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #F2F2F2;        
+  grid-area: nav;    
+}
+
+#logo img {
+  height: 70px;
+  width: 300px;
+  margin-left: 20px;    
+  cursor: pointer;
+  position:flex;    
+}
+
+#menu a {
+  text-decoration: none;
+  font-size: 22px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 15px;
+  color: black;
+  text-align: center;
+  font-family: arial;
+  position: relative;
+}
+
+#menu a:hover {
+  background-color: #04D9D9;
+  color: white;
+}
+
+#menu ul {
+  display: flex;
+  justify-content: flex;
+  align-items: center;
+}
+
+#menu ul li {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 15px;
+  font-family: arial;
+  cursor: pointer;
+  font-size: xx-large;
+  margin-top: 20px;
+  list-style: none;
+}
+
+.container #menu ul li a.active {
+  background-color: #255885;
+  color: white;
+}
+
+#perfil img {
+  height: 100px;
+  width: 100px;
+  right: 10%;
+  top: 3%;    
+}
+
+#nome_perfil {
+  font-family: arial;
+  position: absolute;
+  top: 16.1%;
+  right: 13%;
+  font-size: larger;
+  font-weight: bold;
+  color: #03738C;
+}
+
+menu {
+  display: none;
+  background-color: #255885;
+  padding: 10px;
+  border-radius: 5px;
+      
+}
+
+menu ul {
+  list-style-type: none;
+
+}
+
+menu li {
+  line-height: 25px;
+}
+
+menu a {
+  color: white;
+  text-decoration: none;
+}
+
+menu a:hover {
+  color: #04D9D9;
+}
+
+i#burguer {
+  display: block;
+  color: #255885;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  right: 10%;
+  top: 15%;
+}
+
+i#burguer:hover {
+  color: #03738C;
+}
+
+#itens {
+  position: absolute;
+  right: 7.8%;
+  top: 18.5%;
+  cursor: pointer;
+  z-index: 5;
+}
+
+button {
+  color: #F2F2F2;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+
+/* botões de adicionar medicação */
+
+.botaoAddMed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #255885;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 5%;
+  margin-left: 2%;
+  cursor: pointer;
+}
+
+.botaoAddMed2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #255885;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-bottom: 1%;
+  margin-left: 82%;
+  margin-top: 15%;
+  cursor: pointer;
+}
+
+.conteudo-botao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.conteudo-botao2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.conteudo-botao img {
+  width: 40px;
+  height: 30px;
+  margin-right: 10px;
+  margin-top: 4px;
+}
+
+.conteudo-botao2 img {
+  width: 40px;
+  height: 30px;
+  margin-right: 10px;
+  margin-top: 4px;
+}
+
+.conteudo-botao span {
+  font-weight: bold;
+  font-size: small;
+}
+
+.conteudo-botao2 span {
+  font-weight: bold;
+  font-size: small;
+}
+
+.botaoAddMed:hover {
+  background-color: #03738C;
+}
+
+
+/* configurações da box da medicação */
+
+.boxRemedio {
+  background-color: #DEE3E7;
+  border-radius: 5px;
+  margin: 1%;
+  margin-left: 2%;
+  margin-right: 7%;
+  margin-bottom: 20px;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  line-height: 25px;
+}
+
+.conteudoBoxRemedio {
+  font-family: Arial;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+/* conteúdo da box da medicação */
+
+li {
+  list-style: none;
+}
+
+.nome_remedio {
+  color: #255885;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.lista_opcoes {
+  cursor: pointer;
+  font-family: Arial;
+}
+
+.lista_opcoes a {
+  text-decoration: none;
+}
+
+#lista a {
+  color: #7a7a7a;
+}
+  
+#lista a:hover {
+  color: black;
+}
+
+body{
+  background-color: #F2F2F2;
+}
+
+
+
+
+
+/*
+
+
+
+.BoxRemedio {
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: space-around;
+  align-items: flex-start;
+  font-family: Arial;
+  
+}
+
+
+
+.icone_box_remedio {
+  display: inline-block;
+  flex-direction: row;
+  width: auto;
+  margin: 1%;
+  margin-left: -9.5%;
+}
+
+
+
+.nome_remedio {
+  
+  width: auto;
+  margin: 1%;
+  margin-left: -20%;
+}
+
+.primeira_coluna {
+  float: left;
+  align-items: last baseline;
+  width: auto;
+  margin: 1%;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  font-size: large;
+}
+
+.segunda_coluna {
+  float: left;
+  align-items: last baseline;
+  width: auto;
+  margin: 1%;
+  margin-left: -10%;
+  margin-right: 0;
+  padding: 0;
+  font-size: large;
+}
+
+#icon_alarmes {
+  align-items: center;
+}
+
+.terceira_coluna {
+  float: left;
+  align-items: last baseline;
+  width: auto;
+  margin: 1%;
+  margin-left: -10%;
+  margin-right: 0;
+  padding: 0;
+  font-size: large;
+}
+
+.lista_opcoes {
+  float: left;
+  align-items: last baseline;
+  width: auto;
+  margin: 1%;
+  margin-left: -10%;
+  margin-right: -9.5%;
+  padding: 0;
+  cursor: pointer;
+  font-family: Arial;
+}
+
+#lista a {
+  color: #7a7a7a;
+}
+  
+#lista a:hover {
+  color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+
+.retangulo {  
+  width: 1300px;
+  height: 100px;
+  
+  
+  
+  overflow: hidden;
+  justify-content: space-between;  
+}
+
+.conteudo-retangulo {
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+}
+
+.conteudo-retangulo img {
+  width: 50px;
+  height: 50px;
+  margin-right: 1%;
+  margin-left: 2%;
+  margin-top: 0%;
+}
+
+
+
+#nome_remedio {
+  margin-left: 0%;
+  margin-top: 0%;
+  margin-bottom: 1%;
+  font-size: x-large;
+  font-family: arial;
+  align-items: center;
+  font-weight: bold;
+  color: #255885;  
+  position: relative;
+  display: inline-block;
+}
+
+#cubo {
+  width: 30px;
+  height: 40px;
+  
+}
+
+#dosagem {
+  
+  font-family: arial;
+}
+
+#bucket {
+  width: 50px;
+  height: 30px;
+  
+  position: relative;
+}
+
+#concentracao {
+ 
+  
+  font-family: arial;
+  color: #000000;
+}
+
+#bandeira {
+  width: 30px;
+  height: 40px;
+  
+}
+
+#inicio_medicacao {
+  
+  font-family: arial;
+  color: #000000;
+}
+
+#quadriculada {
+  width: 30px;
+  height: 40px;
+  
+}
+
+#final_medicacao {
+  
+  font-family: arial;
+  color: #000000;
+}
+
+#ampulheta {
+  width: 30px;
+  height: 40px;
+  
+}
+
+.periodo_medicacao {
+  
+  font-family: arial;
+  color: #000000;
+}
+
+.lista-alarmes {
+  
+  display: relative;
+  align-items: center; 
+
+}
+
+#sininho {
+  width: 25px;
+  height: 30px;
+  
+}
+
+.lista-alarmes ul {
+  
+  list-style: none;
+}
+
+#lista {
+  
+  font-family: Arial;
+  font-size: smaller;
+  cursor: pointer;
+}
+
+#lista a {
+  color: #7a7a7a;
+}
+
+#lista a:hover {
+  color: black;
+}
+
+
+
+.lista-links a {
+  white-space: nowrap;
+}
+
+.lista-links a:hover {
+  background-color: #0081cc;
+}
+

@@ -1,0 +1,153 @@
+* {
+  font-family: Arial;
+}
+
+.box-one {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 3%;
+  
+}
+
+.box-one h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.box-one form {
+  margin-top: 20px;
+}
+
+.box-one label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.box-one input[type="text"],
+.box-one input[type="email"],
+.box-one input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+/* Configurações do formulário */
+
+#tituloArea {
+  font-weight: bold;
+  color: #255885;
+  font-family: Arial;
+}
+
+#espacoForm {
+  padding-bottom: 5%;
+}
+
+form {
+  text-align: left;
+}
+
+input {
+  font-family: Arial;
+  font-size: medium;
+  padding: 1%;
+  width: 10%;
+}
+
+
+/* botões */
+
+#botao {
+ padding-top: 5%;
+}
+
+.box-one button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #255885;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.box-one button[type="submit"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #255885;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  margin-top: 1%;
+  cursor: pointer;
+}
+
+.box-one button[type="submit"]:hover {
+  background-color: #03738C
+}
+
+#botao-voltar {
+  background-color: #40A8C4;
+}
+
+#botao-voltar:hover {
+  background-color: #04D9D9;
+}
+
+
+
+
+
+
+
+
+
+
+/*
+
+.box {
+  width: 100px;
+  height: 100px;
+}
+
+.box-one {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F2F2F2;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  width: 500px;
+}
+
+.box-one label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+
+.box-one input[type="text"],
+.box-one input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}

@@ -1,0 +1,97 @@
+.box-one {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#pesquisa-med  {
+  display: inline-flex;  
+  justify-content: space-between;
+  align-items: center;
+  width: 120%;  
+  padding-left: 10%;   
+}
+
+button#addMedicacao {
+  background-color: #255885;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: medium;
+}
+
+button#addMedicacao:hover {
+  background-color: #03738C;
+}
+
+#textopesquisa {
+  font-size: large;
+  font-family: Arial;  
+  position: flex;  
+  margin-right: 0%;
+  margin-bottom: 3%;     
+}
+
+#pesquisa-med input{
+  /*Campo onde o usuario ira colocar informações pedidas e necessárias*/
+  padding: 10px;
+  /*padding: 10px;: Define a quantidade de espaço entre o conteúdo interno do elemento input e sua borda. Nesse caso, 10 pixels de espaço estão sendo adicionados ao redor do conteúdo interno do elemento input.*/
+  border: 1px solid #D9D9D9;
+  /*border: 1px solid #cccccc;: Define a aparência da borda do elemento input. Nesse caso, a borda terá 1 pixel de largura e será sólida, com uma cor de #cccccc (um tom de cinza claro).*/
+  border-radius: 5px;
+  /*border-radius: 5px;: Define o raio dos cantos da borda do elemento input, permitindo arredondar suas bordas. Nesse caso, os cantos da borda serão arredondados em 5 pixels.*/
+  width: 100%;
+  /*width: 50%;: Define a largura do elemento input em relação à largura do elemento pai. Nesse caso, o elemento input terá uma largura de 50% em relação à largura do elemento pai.*/
+  box-sizing: border-box;
+  /*box-sizing: border-box;: Define como o tamanho do elemento é calculado, levando em consideração o seu preenchimento e borda. Nesse caso, a largura definida pelo elemento input incluirá o preenchimento e a borda, sem afetar o layout da página.*/
+  margin-bottom: 20px;
+  /*margin-bottom: 20px;: Define a quantidade de espaço entre o elemento input e o elemento irmão abaixo dele. Nesse caso, um espaço de 20 pixels está sendo adicionado abaixo do elemento input.*/
+}
+
+#pesquisar {
+  background-color: #255885;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: -19.5px;
+  margin-left: 10px;  
+  cursor: pointer;
+  font-weight: bold;
+  font-size: medium;
+  position: relative;
+  
+}
+
+button#pesquisar:hover {
+  background-color: #03738C;
+}
+
+button#voltar {
+  background-color: #40A8C4;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: medium;
+}
+
+button#voltar:hover {
+  background-color: #04D9D9;
+}
+
+
+
+

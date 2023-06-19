@@ -1,0 +1,127 @@
+.meu-botao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #255885;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 1%;
+  margin-left: 2%;
+  cursor: pointer;
+}
+
+.conteudo-botao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.conteudo-botao img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.conteudo-botao span {
+  font-weight: bold;
+  font-size: small;
+}
+
+.editar_dep {
+  color: #000000;
+  /* Defina a cor desejada para os links */
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+.box-one {  
+  margin-top: -35%;    
+}
+
+table {
+  align-items: center;
+  text-align: center;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial;
+  font-size: 14px;
+  margin-top: 20px;  
+}
+
+th {
+  background-color: #255885;
+  border: 1px solid #ddd;
+  color: #fff;
+  padding: 8px;
+}
+
+th:hover {
+  background-color: #0062cc;
+}
+
+td {
+  background-color: #Fff;
+}
+
+tbody td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+td:hover {
+  background-color: #ffffffb5;
+}
+
+/* Estilos personalizados */
+.dependentes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dependente {
+  display: inline-block;
+  text-align: center;
+  margin: 10px;
+}
+
+.dependente img {
+  width: 50px;
+  /* Ajuste o tamanho da imagem conforme necessário */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.dependente span {
+  font-weight: bold;
+}
+
+.dependente a {  
+  text-decoration: none;
+  display: block;
+  margin-top: 5px;
+}
+
+/* Define um estilo para os botões */
+button[type="submit"] {
+  margin-top: 5%;
+  background-color: #4aa4ee;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+button[type="submit"]:hover {
+  background-color: #0062cc;
+}
