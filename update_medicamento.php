@@ -52,7 +52,7 @@ if (mysqli_num_rows($query_alarmes) > 0) {
   echo "<script>setTimeout(function() { location.reload(); }, 60000);</script>";
 }
 ?>
-?>
+
 <!DOCTYPE html>
 <html>
 <html lang="pt-br">
@@ -61,47 +61,47 @@ if (mysqli_num_rows($query_alarmes) > 0) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="style_update_medicamento.css">
   <title>Cadastrar Dependente</title>
 </head>
 
 <body>
-  <div class="container">
-    <div id="nav">
-      <div id="logo">
-        <a href="login.php">
-          <img src="img/logo_plannermed.png">
-        </a>
-      </div>
-      <div class="mobile-menu">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
-      </div>
-      <div id="menu">
-        <ul>
-          <li><a href="principal.php">Diário</a></li>
-          <li><a href="remedios.php">Remédios</a></li>
-          <li><a href="addDependente.php">Depedentes</a></li>
-          <li><a href="sobre.php">Sobre nós</a></li>
-        </ul>
-      </div>
-      <div id="perfil">
-        <img src="img/tentativa.png"><br><br>
-        <label id="nome_perfil"><?php echo $login ?></label>
-        <div class="seta">
-          <img id="seta-img" src="img/seta-perfil.svg" alt="Seta para baixo">
-        </div>
 
-        <div id="menu-dropdown" style="display: none;">
-          <!-- Conteúdo do menu dropdown -->
-          <a href="perfil.php">Dados do perfil</a>
-          <a href="historico.php">Histórico</a>
-          <a href="login.php">Sair</a>
-        </div>
-      </div>
+  <div id="nav">
+    <div id="logo">
+      <a href="login.php">
+        <img src="img/logo_plannermed.png">
+      </a>
     </div>
-    <center>
+
+    <div id="menu">
+      <ul>
+        <li><a href="principal.php" class="active">Diário</a></li>
+        <li><a href="remedios.php">Remédios</a></li>
+        <li><a href="addDependente.php">Depedentes</a></li>
+        <li><a href="sobre.php">Sobre nós</a></li>
+      </ul>
+    </div>
+
+    <div id="perfil">
+      <img src="img/icon-usuario-dependente-2.svg">
+      <label id="nome_perfil"><?php echo $login ?></label>
+    </div>
+
+    <div id="menuUser">
+      <i id="burguer" class="material-icons" onclick="clickMenu()">menu</i>
+      <menu id="itens">
+        <ul>
+          <li><a href="perfil.php">Dados do perfil</a></li>
+          <li><a href="historico.php">Histórico</a></li>
+          <li><a href="login.php">Sair</a></li>
+        </ul>
+      </menu>
+    </div>
+  </div>
+  <center>
     <div class="box-one">
       <h1>Atualizar Medicamento - <?php echo $nome_medicamento; ?></h1>
 
@@ -121,35 +121,44 @@ if (mysqli_num_rows($query_alarmes) > 0) {
         <button type="submit">Voltar</button>
       </form>
     </div>
-    </center>
-  </div>
+  </center>
+
   <script>
-      // Seleciona a imagem de seta pelo ID
-      const setaImg = document.getElementById('seta-img');
+    // Seleciona a imagem de seta pelo ID
+    const setaImg = document.getElementById('seta-img');
 
-      // Seleciona o menu-dropdown pelo ID
-      const menuDropdown = document.getElementById('menu-dropdown');
+    // Seleciona o menu-dropdown pelo ID
+    const menuDropdown = document.getElementById('menu-dropdown');
 
-      // Adiciona um evento de clique à imagem de seta
-      setaImg.addEventListener('click', function() {
-        // Verifica se o menu-dropdown está visível
-        const isMenuVisible = menuDropdown.style.display === 'block';
+    // Adiciona um evento de clique à imagem de seta
+    setaImg.addEventListener('click', function() {
+      // Verifica se o menu-dropdown está visível
+      const isMenuVisible = menuDropdown.style.display === 'block';
 
-        // Alterna a visibilidade do menu-dropdown
-        if (isMenuVisible) {
-          menuDropdown.style.display = 'none'; // Oculta o menu-dropdown
-        } else {
-          menuDropdown.style.display = 'block'; // Exibe o menu-dropdown
-        }
-      });
-      // Supondo que o login esteja armazenado em uma variável chamada "login"
-      const login = "<?php echo $_SESSION['login']; ?>";
+      // Alterna a visibilidade do menu-dropdown
+      if (isMenuVisible) {
+        menuDropdown.style.display = 'none'; // Oculta o menu-dropdown
+      } else {
+        menuDropdown.style.display = 'block'; // Exibe o menu-dropdown
+      }
+    });
+    // Supondo que o login esteja armazenado em uma variável chamada "login"
+    const login = "<?php echo $_SESSION['login']; ?>";
 
-      setInterval(function() {
-        console.log(`Verificando alarmes às ${moment().format('YYYY-MM-DD HH:mm:ss')}`);
-        tocarAlarmes(login);
-      }, 60000); // Verificar a cada 1 minuto (60000 milissegundos)
-    </script>
+    setInterval(function() {
+      console.log(`Verificando alarmes às ${moment().format('YYYY-MM-DD HH:mm:ss')}`);
+      tocarAlarmes(login);
+    }, 60000); // Verificar a cada 1 minuto (60000 milissegundos)
+  </script>
+  <script>
+    function clickMenu() {
+      if (itens.style.display == 'block') {
+        itens.style.display = 'none'; //se estiver visível, ao clicar oculta
+      } else {
+        itens.style.display = 'block'; //se não, revela
+      }
+    }
+  </script>
 </body>
 
 </html>

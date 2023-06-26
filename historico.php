@@ -33,16 +33,25 @@ $select = "SELECT me_horario.*, me_medicamento.nome_medicamento
 $query_alarmes = mysqli_query($conexao, $select);
 
 if (mysqli_num_rows($query_alarmes) > 0) {
-  // Exibe o alerta para o usuário com os medicamentos cujo horário esteja dentro do intervalo
-  while ($dado_alarme = mysqli_fetch_assoc($query_alarmes)) {
-    $nomeMedicamento = $dado_alarme['nome_medicamento'];
-    echo "<script>alert('Hora de tomar o remédio: $nomeMedicamento');</script>";
-    echo "<audio autoplay><source src='audio/alarme_clock_audio_ringtone.mp3' type='audio/mpeg'></audio>";
-  }
+    // Exibe o alerta para o usuário com os medicamentos cujo horário esteja dentro do intervalo
+    while ($dado_alarme = mysqli_fetch_assoc($query_alarmes)) {
+        $nomeMedicamento = $dado_alarme['nome_medicamento'];
+        echo "<script>alert('Hora de tomar o remédio: $nomeMedicamento');</script>";
+        echo "<audio autoplay><source src='audio/alarme_clock_audio_ringtone.mp3' type='audio/mpeg'></audio>";
+    }
 } else {
-  // Se não houver alarmes no horário atual, agendamos a próxima verificação em 1 minuto
-  echo "<script>setTimeout(function() { location.reload(); }, 60000);</script>";
+    // Se não houver alarmes no horário atual, agendamos a próxima verificação em 1 minuto
+    echo "<script>setTimeout(function() { location.reload(); }, 60000);</script>";
 }
+
+// Obtendo o tipo de usuário do banco de dados
+$select_tipo_usuario = "SELECT id_tipo_usuario FROM me_usuario
+ WHERE id_usuario IN (SELECT id_usuario FROM me_login WHERE login = '$login')";
+
+$query_tipo_usuario = mysqli_query($conexao, $select_tipo_usuario);
+$dado_tipo_usuario = mysqli_fetch_assoc($query_tipo_usuario);
+
+$id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
 
 ?>
 <!DOCTYPE html>
@@ -52,7 +61,7 @@ if (mysqli_num_rows($query_alarmes) > 0) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizar Alarme</title>
+    <title>Histórico</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style_historico.css">
@@ -71,7 +80,10 @@ if (mysqli_num_rows($query_alarmes) > 0) {
                 <ul>
                     <li><a href="principal.php">Diário</a></li>
                     <li><a href="remedios.php">Remédios</a></li>
-                    <li><a href="addDependente.php">Depedentes</a></li>
+                    <?php
+                    if ($id_tipo_usuario == 1) {
+                        echo '<li><a href="addDependente.php">Depedentes</a></li>';
+                    } ?>
                     <li><a href="sobre.php">Sobre nós</a></li>
                 </ul>
             </div>
@@ -124,7 +136,7 @@ if (mysqli_num_rows($query_alarmes) > 0) {
                 echo "<td>" . $dado_horario['nome_medicamento'] . "</td>";
                 //estou passando o dado de id_horario para poder excluir corretamente
                 if ($id_tipo_usuario == 1) {
-                    echo "<td><a href='excluir_medicamento.php?id_horario={$dado_horario['id_horario']}'>Excluir Medicamento</a></td>";
+                    echo '<td><a href="javascript:excluirMedicamento(' . $dado_horario['id_horario'] . ')">Excluir horário</a>';
                     echo "<td>
                             <a href='update_medicamento.php?id_horario={$dado_horario['id_horario']}&nome_medicamento={$dado_horario['nome_medicamento']}'>
                             Atualizar Data e Hora</a></td>";
@@ -178,6 +190,13 @@ if (mysqli_num_rows($query_alarmes) > 0) {
 
 
     <script>
+         //Confirmação para excluir
+      function excluirMedicamento(idHorario) {
+        // Exibe uma mensagem de confirmação e redireciona para a página de exclusão
+        if (confirm("Tem certeza que deseja excluir o medicamento?")) {
+          window.location.href = 'excluir_medicamento.php?id_horario=' + idHorario;
+        }
+      }
         //Voltar para a última página acessada
         function goBack() {
             window.history.back();

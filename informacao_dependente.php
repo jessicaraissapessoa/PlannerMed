@@ -64,110 +64,127 @@
   }
   ?>
   <center>
-  
-      <div id="nav">
-        <div id="logo">
-          <a href="login.php">
-            <img src="img/logo_plannermed.png">
-          </a>
-        </div>
 
-        <div id="menu">
+    <div id="nav">
+      <div id="logo">
+        <a href="login.php">
+          <img src="img/logo_plannermed.png">
+        </a>
+      </div>
+
+      <div id="menu">
+        <ul>
+          <li><a href="principal.php">Diário</a></li>
+          <li><a href="remedios.php">Remédios</a></li>
+          <li><a href="addDependente.php" class="active">Depedentes</a></li>
+          <li><a href="sobre.php">Sobre nós</a></li>
+        </ul>
+      </div>
+
+      <div id="perfil">
+        <img src="img/icon-usuario-dependente-2.svg"><br><br>
+        <label id="nome_perfil"><?php echo $login ?></label>
+      </div>
+
+      <div id="menuUser">
+        <i id="burguer" class="material-icons" onclick="clickMenu()">menu</i>
+        <menu id="itens">
           <ul>
-            <li><a href="principal.php">Diário</a></li>
-            <li><a href="remedios.php">Remédios</a></li>
-            <li><a href="addDependente.php" class="active">Depedentes</a></li>
-            <li><a href="sobre.php">Sobre nós</a></li>
+            <li><a href="perfil.php">Dados do perfil</a></li>
+            <li><a href="historico.php">Histórico</a></li>
+            <li><a href="login.php">Sair</a></li>
           </ul>
-        </div>
-
-        <div id="perfil">
-          <img src="img/icon-usuario-dependente-2.svg"><br><br>
-          <label id="nome_perfil"><?php echo $login ?></label>
-        </div>
-
-        <div id="menuUser">
-          <i id="burguer" class="material-icons" onclick="clickMenu()">menu</i>
-          <menu id="itens">
-            <ul>
-              <li><a href="perfil.php">Dados do perfil</a></li>
-              <li><a href="historico.php">Histórico</a></li>
-              <li><a href="login.php">Sair</a></li>
-            </ul>
-          </menu>
-        </div>
+        </menu>
       </div>
+    </div>
 
-  
-      <div class="box-one">
-        <h1>Informações do dependente</h1>
-        <table>
-          <tr>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Login</th>
-            <th>Excluir Dependente</th>
-          </tr>
-          <tr>
-            <td><?php echo $dado_user[1] . "<br>"; ?></td>
-            <td><?php echo $dado_user[2] . "<br>"; ?></td>
-            <td><?php echo $dado_user[4] . "<br>" ?></td>
-            <td><a href="excluir_usuario.php?id_usuario=<?php echo $dado_user[0]; ?>
-                    &&login_dep=<?php echo $dado_user[4] ?>" id="link_excluir">Excluir Dependente</a></td>
-          </tr>
-        </table>
-      </div>
 
-      <div class="box-onde">
-        <h3>Medicamentos e Horários Cadastrados:</h3>
-        <?php
-        if (mysqli_num_rows($query_horario) > 0) {
-          echo "<table>";
-          echo "<thead>";
+    <div class="box-one">
+      <h1>Informações do dependente</h1>
+      <table>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Login</th>
+          <th>Excluir Dependente</th>
+        </tr>
+        <tr>
+          <td><?php echo $dado_user[1] . "<br>"; ?></td>
+          <td><?php echo $dado_user[2] . "<br>"; ?></td>
+          <td><?php echo $dado_user[4] . "<br>" ?></td>
+          <td>
+            <a href="excluir_usuario.php?id_usuario=<?php echo $dado_user[0]; ?>&login_dep=<?php echo $dado_user[4] ?>" id="link_excluir" onclick="confirmarExclusaoDependente(event)">Excluir Dependente</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="box-onde">
+      <h3>Medicamentos e Horários Cadastrados:</h3>
+      <?php
+      if (mysqli_num_rows($query_horario) > 0) {
+        echo "<table>";
+        echo "<thead>";
+        echo "<tr>";
+        echo "<th>Data e Hora</th>";
+        echo "<th>Login</th>";
+        echo "<th>Medicamento</th>";
+        echo "<th>Dosagem</th>";
+        echo "<th>Concentração</th>";
+        echo "<th>Excluir Alarmes</th>";
+        echo "<th>Atualizar Alarmes</th>";
+        echo "</tr>";
+        echo "</thead>";
+        echo "<tbody>";
+
+        while ($dado_horario = mysqli_fetch_assoc($query_horario)) {
           echo "<tr>";
-          echo "<th>Data e Hora</th>";
-          echo "<th>Login</th>";
-          echo "<th>Medicamento</th>";
-          echo "<th>Dosagem</th>";
-          echo "<th>Concentração</th>";
-          echo "<th>Excluir Alarmes</th>";
-          echo "<th>Atualizar Alarmes</th>";
-          echo "</tr>";
-          echo "</thead>";
-          echo "<tbody>";
-
-          while ($dado_horario = mysqli_fetch_assoc($query_horario)) {
-            echo "<tr>";
-            echo "<td>" . date('d/m/Y H:i:s', strtotime($dado_horario['horario'])) . "</td>";
-            echo "<td>" . $dado_horario['login'] . "</td>";
-            echo "<td>" . $dado_horario['nome_medicamento'] . "</td>";
-            echo "<td>" . $dado_horario['dosagem'] . "</td>";
-            echo "<td>" . $dado_horario['concentracao'] . "</td>";
-            //estou passando o dado de id_horario para poder excluir corretamente
-            echo "<td><a href='excluir_medicamento.php?id_horario={$dado_horario['id_horario']}'>Excluir Medicamento</a></td>";
-            echo "<td>
+          echo "<td>" . date('d/m/Y H:i:s', strtotime($dado_horario['horario'])) . "</td>";
+          echo "<td>" . $dado_horario['login'] . "</td>";
+          echo "<td>" . $dado_horario['nome_medicamento'] . "</td>";
+          echo "<td>" . $dado_horario['dosagem'] . "</td>";
+          echo "<td>" . $dado_horario['concentracao'] . "</td>";
+          //estou passando o dado de id_horario para poder excluir corretamente
+          echo '<td><a href="javascript:excluirMedicamento(' . $dado_horario['id_horario'] . ')">Excluir horário</a></td>';
+          echo "<td>
                     <a href='update_medicamento.php?id_horario={$dado_horario['id_horario']}&nome_medicamento={$dado_horario['nome_medicamento']}&dependente={$nome_dependente}'>
                     Atualizar Data e Hora</a></td>";
 
-            echo "</tr>";
-          }
-
-          echo "</tbody>";
-          echo "</table>";
-        } else {
-          echo "Nenhum medicamento cadastrado para este dependente.";
+          echo "</tr>";
         }
-        ?>
-        <form action="principal2.php" style="text-align: center;">
-          <button type="submit" class="voltar-button" onclick="goBack()">
-            Voltar
-          </button>
-        </form>
-      </div>
-    
+
+        echo "</tbody>";
+        echo "</table>";
+      } else {
+        echo "Nenhum medicamento cadastrado para este dependente.";
+      }
+      ?>
+
+      <button type="submit" class="voltar-button" onclick="goBack()">
+        Voltar
+      </button>
+
+    </div>
+
   </center>
 </body>
 <script>
+  //Confirmação excluir dependente
+  function confirmarExclusaoDependente(event) {
+    event.preventDefault(); // Impede o comportamento padrão do link
+
+    if (confirm('Tem certeza de que deseja excluir este dependente?')) {
+      const href = event.target.getAttribute('href');
+      window.location.href = href;
+    }
+  }
+  //Confirmação para excluir
+  function excluirMedicamento(idHorario) {
+    // Exibe uma mensagem de confirmação e redireciona para a página de exclusão
+    if (confirm("Tem certeza que deseja excluir o medicamento?")) {
+      window.location.href = 'excluir_medicamento.php?id_horario=' + idHorario;
+    }
+  }
   //Voltar para a última página acessada
   function goBack() {
     window.history.back();
@@ -199,12 +216,13 @@
   }, 60000); // Verificar a cada 1 minuto (60000 milissegundos)
 </script>
 <script>
-        function clickMenu() {
-            if (itens.style.display == 'block') {
-                itens.style.display = 'none'; //se estiver visível, ao clicar oculta
-            } else {
-                itens.style.display = 'block'; //se não, revela
-            }
-        }
+  function clickMenu() {
+    if (itens.style.display == 'block') {
+      itens.style.display = 'none'; //se estiver visível, ao clicar oculta
+    } else {
+      itens.style.display = 'block'; //se não, revela
+    }
+  }
 </script>
+
 </html>

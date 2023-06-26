@@ -63,6 +63,8 @@ if (mysqli_num_rows($query_alarmes) > 0) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style_mudar_dados.css">
     <title>Mudar Dados</title>
     <script src="verificar_dados.js"></script>
@@ -70,64 +72,64 @@ if (mysqli_num_rows($query_alarmes) > 0) {
 
 <body>
     <center>
-        <div class="container">
-            <div id="nav">
-                <div id="logo">
-                    <a href="login.php">
-                        <img src="img/logo_plannermed.png">
-                    </a>
-                </div>
+        <div id="nav">
+            <div id="logo">
+                <a href="login.php">
+                    <img src="img/logo_plannermed.png">
+                </a>
+            </div>
 
-                <div id="menu">
+            <div id="menu">
+                <ul>
+                    <li><a href="principal.php" class="active">Diário</a></li>
+                    <li><a href="remedios.php">Remédios</a></li>
+                    <li><a href="addDependente.php">Depedentes</a></li>
+                    <li><a href="sobre.php">Sobre nós</a></li>
+                </ul>
+            </div>
+
+            <div id="perfil">
+                <img src="img/icon-usuario-dependente-2.svg">
+                <label id="nome_perfil"><?php echo $login ?></label>
+            </div>
+
+            <div id="menuUser">
+                <i id="burguer" class="material-icons" onclick="clickMenu()">menu</i>
+                <menu id="itens">
                     <ul>
-                        <li><a href="principal.php">Diário</a></li>
-                        <li><a href="remedios.php">Remédios</a></li>
-                        <li><a href="addDependente.php">Depedentes</a></li>
-                        <li><a href="sobre.php">Sobre nós</a></li>
+                        <li><a href="perfil.php">Dados do perfil</a></li>
+                        <li><a href="historico.php">Histórico</a></li>
+                        <li><a href="login.php">Sair</a></li>
                     </ul>
-                </div>
-                <div id="perfil">
-                    <img src="img/tentativa.png"><br><br>
-                    <label id="nome_perfil"><?php echo $login ?></label>
-                    <div class="seta">
-                        <img id="seta-img" src="img/seta-perfil.svg" alt="Seta para baixo">
-                    </div>
-
-                    <div id="menu-dropdown" style="display: none;">
-                        <!-- Conteúdo do menu dropdown -->
-                        <a href="perfil.php">Dados do perfil</a>
-                        <a href="historico.php">Histórico</a>
-                        <a href="login.php">Sair</a>
-                    </div>
-                </div>
+                </menu>
             </div>
-            <div class="box-one">
-                <form action="mudar_dados_scripting.php" method="post">
-                    <label for="nome">Digite seu nome :</label><br>
-                    <input type="text" name="novo_nome" value="<?php echo $nome ?>" required><br>
+        </div>
+        <div class="box-one">
+            <form action="mudar_dados_scripting.php" method="post">
+                <label for="nome">Digite seu nome :</label><br>
+                <input type="text" name="novo_nome" value="<?php echo $nome ?>" required><br>
 
-                    <!--Cadastrar login-->
-                    <label for="login">Digite seu login :</label><br>
-                    <input type="text" name="novo_login" value="<?php echo $login ?>" required><br>
+                <!--Cadastrar login-->
+                <label for="login">Digite seu login :</label><br>
+                <input type="text" name="novo_login" value="<?php echo $login ?>" required><br>
 
-                    <!--Cadastrar email-->
-                    <label for="email">Email :</label><br>
-                    <input type="text" name="novo_email" value="<?php echo $email ?>" required><br>
+                <!--Cadastrar email-->
+                <label for="email">Email :</label><br>
+                <input type="email" name="novo_email" value="<?php echo $email ?>" required><br>
 
-                    <!--Cadastrar senha-->
-                    <label for="senha">Digite sua senha :</label><br><!--<label></label> serve para que ao clicar no rótulo, o elemento de formulário associado a ele também recebe foco. Isso é útil para usuários que têm dificuldade em clicar em elementos pequenos, como caixas de seleção, ou que usam leitores de tela para acessar a página.-->
-                    <input type="password" name="nova_senha" id="senha" value="<?php echo $senha ?>" required><br>
+                <!--Cadastrar senha-->
+                <label for="senha">Digite sua senha :</label><br><!--<label></label> serve para que ao clicar no rótulo, o elemento de formulário associado a ele também recebe foco. Isso é útil para usuários que têm dificuldade em clicar em elementos pequenos, como caixas de seleção, ou que usam leitores de tela para acessar a página.-->
+                <input type="password" name="nova_senha" id="senha" value="<?php echo $senha ?>" required><br>
 
-                    <input type="checkbox" onclick="mostrarOcultarSenha()">Mostar Senha <br>
-                    <script type="text/javascript" src="verificar_senha.js"></script>
+                <input type="checkbox" onclick="mostrarOcultarSenha()">Mostar Senha <br>
+                <script type="text/javascript" src="verificar_senha.js"></script>
 
-                    <button type="submit" class="enviar">Enviar</button>
+                <button type="submit" class="enviar">Enviar</button>
 
-                </form>
-                <form action="perfil.php">
-                    <button type="submit" class="voltar">Voltar</button>
-                </form>
-            </div>
+            </form>
+            <form action="perfil.php">
+                <button type="submit" class="voltar">Voltar</button>
+            </form>
         </div>
     </center>
 
@@ -157,6 +159,15 @@ if (mysqli_num_rows($query_alarmes) > 0) {
             console.log(`Verificando alarmes às ${moment().format('YYYY-MM-DD HH:mm:ss')}`);
             tocarAlarmes(login);
         }, 60000); // Verificar a cada 1 minuto (60000 milissegundos)
+    </script>
+    <script>
+        function clickMenu() {
+            if (itens.style.display == 'block') {
+                itens.style.display = 'none'; //se estiver visível, ao clicar oculta
+            } else {
+                itens.style.display = 'block'; //se não, revela
+            }
+        }
     </script>
 
 </body>

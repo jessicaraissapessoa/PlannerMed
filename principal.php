@@ -84,30 +84,33 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
       </div>
 
       <div id="menu">
-          <ul>
-            <li><a href="principal.php" class="active">Diário</a></li>
-            <li><a href="remedios.php">Remédios</a></li>
-            <li><a href="addDependente.php">Depedentes</a></li>
-            <li><a href="sobre.php">Sobre nós</a></li>
-          </ul>
-        </div>
-
-        <div id="perfil">
-          <img src="img/icon-usuario-dependente-2.svg">
-          <label id="nome_perfil"><?php echo $login ?></label>
-        </div>
-
-        <div id="menuUser">
-          <i id="burguer" class="material-icons" onclick="clickMenu()">menu</i>
-          <menu id="itens">
-            <ul>
-              <li><a href="perfil.php">Dados do perfil</a></li>
-              <li><a href="historico.php">Histórico</a></li>
-              <li><a href="login.php">Sair</a></li>
-            </ul>
-          </menu>
-        </div>
+        <ul>
+          <li><a href="principal.php" class="active">Diário</a></li>
+          <li><a href="remedios.php">Remédios</a></li>
+          <?php
+          if ($id_tipo_usuario == 1) {
+            echo '<li><a href="addDependente.php">Depedentes</a></li>';
+          } ?>
+          <li><a href="sobre.php">Sobre nós</a></li>
+        </ul>
       </div>
+
+      <div id="perfil">
+        <img src="img/icon-usuario-dependente-2.svg">
+        <label id="nome_perfil"><?php echo $login ?></label>
+      </div>
+
+      <div id="menuUser">
+        <i id="burguer" class="material-icons" onclick="clickMenu()">menu</i>
+        <menu id="itens">
+          <ul>
+            <li><a href="perfil.php">Dados do perfil</a></li>
+            <li><a href="historico.php">Histórico</a></li>
+            <li><a href="login.php">Sair</a></li>
+          </ul>
+        </menu>
+      </div>
+    </div>
     <div id="main">
       <button class="meu-botao" onclick="window.location.href ='principal2.php'">
         <div class="conteudo-botao">
@@ -150,22 +153,25 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
               <ul id="lista">
                 <li><a href="pesquisa_med.php?medicamento=<?php echo $nomeMedicamento; ?>">Acessar bula</a></li>
                 <?php
-                  if ($id_tipo_usuario == 1) {
-                    echo '<li style="margin-bottom: 0.4cm; text-align: right;">
-                <a href="update_medicamento.php?id_horario=' . $dado_horario['id_horario'] . '&nome_medicamento=' . $dado_horario['nome_medicamento'] . '">Editar medicação</a></li>';
-                    echo '<li style="margin-bottom: 0.4cm; text-align: right;"> <a href="excluir_medicamento.php?id_horario=' . $dado_horario['id_horario'] . '">Excluir horário</a></li>';
+                if ($id_tipo_usuario == 1) {
+                  echo '<li>
+                            <a href="update_medicamento.php?id_horario=' . $dado_horario['id_horario'] . '&nome_medicamento=' . $dado_horario['nome_medicamento'] . '">Editar medicação</a>
+                          </li>';
+                  echo '<li>
+                            <a href="javascript:excluirMedicamento(' . $dado_horario['id_horario'] . ')">Excluir horário</a>
+                          </li>';
                 } ?>
               </ul>
             </div>
 
           </div>
-        </div>        
+        </div>
 
       <?php } ?>
     </div>
     <div id="footer">
       <div id="main2">
-      <button class="meu-botao2" onclick="window.location.href = 'principal2.php'">
+        <button class="meu-botao2" onclick="window.location.href = 'principal2.php'">
           <div class="conteudo-botao2">
             <img src="img/icon-button-adicionar-alarme.svg">
             <?php
@@ -180,6 +186,13 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
       </div>
     </div>
     <script>
+      //Confirmação para excluir
+      function excluirMedicamento(idHorario) {
+        // Exibe uma mensagem de confirmação e redireciona para a página de exclusão
+        if (confirm("Tem certeza que deseja excluir o medicamento?")) {
+          window.location.href = 'excluir_medicamento.php?id_horario=' + idHorario;
+        }
+      }
       // Seleciona a imagem de seta pelo ID
       const setaImg = document.getElementById('seta-img');
 
@@ -208,14 +221,14 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
     </script>
     <script src="script_principal.js"></script>
     <script>
-        function clickMenu() {
-          if (itens.style.display == 'block') {
-            itens.style.display = 'none'; //se estiver visível, ao clicar oculta
-          } else {
-            itens.style.display = 'block'; //se não, revela
-          }
+      function clickMenu() {
+        if (itens.style.display == 'block') {
+          itens.style.display = 'none'; //se estiver visível, ao clicar oculta
+        } else {
+          itens.style.display = 'block'; //se não, revela
         }
-      </script>
+      }
+    </script>
   </div>
 </body>
 

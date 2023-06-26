@@ -33,15 +33,15 @@ $select = "SELECT me_horario.*, me_medicamento.nome_medicamento
 $query_alarmes = mysqli_query($conexao, $select);
 
 if (mysqli_num_rows($query_alarmes) > 0) {
-  // Exibe o alerta para o usuário com os medicamentos cujo horário esteja dentro do intervalo
-  while ($dado_alarme = mysqli_fetch_assoc($query_alarmes)) {
-    $nomeMedicamento = $dado_alarme['nome_medicamento'];
-    echo "<script>alert('Hora de tomar o remédio: $nomeMedicamento');</script>";
-    echo "<audio autoplay><source src='audio/alarme_clock_audio_ringtone.mp3' type='audio/mpeg'></audio>";
-  }
+    // Exibe o alerta para o usuário com os medicamentos cujo horário esteja dentro do intervalo
+    while ($dado_alarme = mysqli_fetch_assoc($query_alarmes)) {
+        $nomeMedicamento = $dado_alarme['nome_medicamento'];
+        echo "<script>alert('Hora de tomar o remédio: $nomeMedicamento');</script>";
+        echo "<audio autoplay><source src='audio/alarme_clock_audio_ringtone.mp3' type='audio/mpeg'></audio>";
+    }
 } else {
-  // Se não houver alarmes no horário atual, agendamos a próxima verificação em 1 minuto
-  echo "<script>setTimeout(function() { location.reload(); }, 60000);</script>";
+    // Se não houver alarmes no horário atual, agendamos a próxima verificação em 1 minuto
+    echo "<script>setTimeout(function() { location.reload(); }, 60000);</script>";
 }
 // Obtendo o tipo de usuário do banco de dados
 $select_tipo_usuario = "SELECT id_tipo_usuario FROM me_usuario
@@ -89,7 +89,10 @@ WHERE l.login = '$login'";
                 <ul>
                     <li><a href="principal.php">Diário</a></li>
                     <li><a href="remedios.php">Remédios</a></li>
-                    <li><a href="addDependente.php">Depedentes</a></li>
+                    <?php
+                    if ($id_tipo_usuario == 1) {
+                        echo '<li><a href="addDependente.php">Depedentes</a></li>';
+                    } ?>
                     <li><a href="sobre.php">Sobre nós</a></li>
                 </ul>
             </div>
@@ -111,53 +114,53 @@ WHERE l.login = '$login'";
             </div>
         </div>
     </div>
-        <center>
-            <div class="box-one">
+    <center>
+        <div class="box-one">
 
-                <h1>Aqui estão suas informações pessoais</h1>
-                <table class="my-table">
-                    <tr>
-                        <th>nome</th>
-                        <th>Email</th>
-                        <th>Login</th>
-                    </tr>
-                    <tr>
-                        <td><span></span><?php echo $dado_user[1] . "<br>"; ?></td>
-                        <td><span></span><?php echo $dado_user[2] . "<br>"; ?></td>
-                        <td><span></span><?php echo $dado_user[4] . "<br>" ?></td>
-                    </tr>
-                </table>
-                <?php
-                if ($id_tipo_usuario == 1) {
-                    echo '<form action="mudar_dados.php">';
-                    echo '<button type="submit">Mudar dados</button>';
-                    echo '</form>';
-                }
+            <h1>Aqui estão suas informações pessoais</h1>
+            <table class="my-table">
+                <tr>
+                    <th>nome</th>
+                    <th>Email</th>
+                    <th>Login</th>
+                </tr>
+                <tr>
+                    <td><span></span><?php echo $dado_user[1] . "<br>"; ?></td>
+                    <td><span></span><?php echo $dado_user[2] . "<br>"; ?></td>
+                    <td><span></span><?php echo $dado_user[4] . "<br>" ?></td>
+                </tr>
+            </table>
+            <?php
+            if ($id_tipo_usuario == 1) {
+                echo '<form action="mudar_dados.php">';
+                echo '<button type="submit">Mudar dados</button>';
+                echo '</form>';
+            }
 
-                ?>
-                <form action="historico.php">
-                    <button type="submit">Histórico</button>
-                </form><br>
+            ?>
+            <form action="historico.php">
+                <button type="submit">Histórico</button>
+            </form><br>
 
-                <?php if ($id_tipo_usuario == 1) {
-                    echo "<h2>Dependentes Cadastrados:</h2><br>";
-                    foreach ($dependentes as $dependente) : ?>
-                        <div class="dependente">
-                            <img src="img/icon-usuario-dependente-1.svg" alt="Foto do dependente">
-                            <div>
-                                <span><?php echo $dependente['nome_dependente']; ?></span>
-                                <a class="editar_dep" href="informacao_dependente.php?id_dependente=<?php echo $dependente['id_dependente']; ?>
+            <?php if ($id_tipo_usuario == 1) {
+                echo "<h2>Dependentes Cadastrados:</h2><br>";
+                foreach ($dependentes as $dependente) : ?>
+                    <div class="dependente">
+                        <img src="img/icon-usuario-dependente-1.svg" alt="Foto do dependente">
+                        <div>
+                            <span><?php echo $dependente['nome_dependente']; ?></span>
+                            <a class="editar_dep" href="informacao_dependente.php?id_dependente=<?php echo $dependente['id_dependente']; ?>
           &nome_dependente=<?php echo $dependente['nome_dependente']; ?>">Acessar Dependente</a>
-                            </div>
                         </div>
-                <?php endforeach;
-                } ?> <br>
+                    </div>
+            <?php endforeach;
+            } ?> <br>
 
-                <button type="submit" onclick="goBack()">Voltar</button>
+            <button type="submit" onclick="goBack()">Voltar</button>
 
-            </div>
-        </center>
-    
+        </div>
+    </center>
+
 
     <script>
         //Voltar para a última página acessada
@@ -192,13 +195,13 @@ WHERE l.login = '$login'";
     </script>
     <script>
         function clickMenu() {
-          if (itens.style.display == 'block') {
-            itens.style.display = 'none'; //se estiver visível, ao clicar oculta
-          } else {
-            itens.style.display = 'block'; //se não, revela
-          }
+            if (itens.style.display == 'block') {
+                itens.style.display = 'none'; //se estiver visível, ao clicar oculta
+            } else {
+                itens.style.display = 'block'; //se não, revela
+            }
         }
-      </script>
+    </script>
 </body>
 
 </html>

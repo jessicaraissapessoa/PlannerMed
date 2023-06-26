@@ -1,0 +1,242 @@
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+/* Logo */
+
+.logo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+#img_logo {
+    margin-top: 2%;
+    margin-left: 37%;
+    display: flex;
+    align-content: space-around;
+}
+  
+
+/* Principal */
+
+
+
+  
+
+/* As box */
+
+.boxQuemSomos {
+    display: inline-block;
+    flex-direction: row;
+    width: 1700px;
+    height: 160px;
+    margin-left: 13%;
+  }
+  
+  .boxQuemSomos p{
+    margin-top: 1%;
+    margin-left: 10%;
+    margin-right: 20%;
+  }
+  
+  .boxContatos {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    position: relative;
+    justify-content: space-evenly;
+    align-content: space-around;
+    margin-top: 3%;
+    font-size: x-large;
+  }
+  
+  .boxContatos1 {
+    display: inline-block;
+    flex-direction:column;
+    text-align:left;
+    margin-top: 0.7%;
+    
+  }
+  
+  .boxContatos2 {
+    float: left;
+    overflow-wrap: break-word;     
+  }
+  
+  .boxContatos3 {
+    float: left; 
+  }
+  
+  .lista-contato{
+    margin-top: .4%;
+    margin-left: 5%;
+    list-style: none;
+    display: inline;
+  }
+  
+  h2 {
+    font-family: Arial;
+    font-size: xx-large;
+    color: #03738C;
+    font-weight: bold;
+  }
+  
+  p {
+    font-family: Arial;
+    font-size: large;
+    color: black;
+  }
+  
+  .boxContatos3 a {
+    font-size: xx-large;
+  }
+  
+  
+  /* Ícones tópicos */
+  
+  img#imagemTopico {
+    margin-top: 2%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 4%;
+    margin-left: 3%;
+  }
+  
+  h2#nossoObjetivo{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2%;
+    margin-top: 4.2%;
+    color: #255885;
+  }
+  
+  h2#quemSomos{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2.5%;
+    margin-top: 4.2%;
+    color: #255885;
+  }
+  
+  h2#contatos {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2%;
+    margin-top: 4.2%;
+    color: #255885;  
+  }
+  
+  .boxContatos1 span {
+    margin-top: 1%;
+    margin-left: 4%;
+  }
+  
+  .boxContatos1 p {
+    margin-top: 1%;
+    margin-left: 10%;
+    margin-right: 20%;
+  }
+  
+  .boxContatos1 {
+    display: flex;  
+  }
+  
+  .boxContatos1 img {
+    width: 19.5px;
+    height: auto;
+  }
+  
+  .boxContatos1 ul {
+    margin-top: 5%;
+    margin-left: 29%;
+  }
+  
+  .boxContatos1 a {
+    color: #000000;
+  }
+  
+  .boxContatos1 a:hover {
+    color: #24434e;
+  }
+  
+  /* Ícones contatos */
+  
+  img#iconePerfil {
+    width: 40px;
+    height: 40px; 
+  }
+  
+  li#iconePerfil {
+    font-family: Arial;
+    color: black;
+    font-weight: bold;
+    font-size: large;
+  }
+  
+  img#linkContato {
+    width: 40px;
+    height: 40px;
+  }
+  
+  
+  /* Hyperlink */
+  
+  
+  a#linkContato {
+    font-family: Arial;
+    font-size: small;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  a#linkContato:hover {
+    opacity: 0.7;
+  } 
+  
+  
+  /* Botão */
+
+
+  #botao {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+
+  
+  .meu-botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #255885;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 5%;
+    cursor: pointer;
+    margin-left: 43%;
+    margin-bottom: 5%;
+  }
+  
+  .conteudo-botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .conteudo-botao span {
+    font-weight: bold;
+    font-size: xx-large;
+  }
+  
+  .meu-botao:hover {
+  background-color: #03738C;
+  }
