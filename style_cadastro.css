@@ -1,3 +1,12 @@
+* {
+  padding: 0%;
+  margin: 0%;
+  font-family: Arial;
+}
+
+
+/* Caixas */
+
 body {
   background-color: #005687;
   font-family: Arial, sans-serif;
@@ -9,88 +18,120 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+}
+
+img {
+  margin: auto;
+  display: block;
+  width: 50%;
+  margin-bottom: 4%;
+  margin-top: -2%;
 }
 
 .box-one {
   background-color: #ffffff;
   padding: 30px;
   border-radius: 10px;
-  height: 700px;
-  width: 400px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
-.box-logo {
-  text-align: center;
-  margin-bottom: 30px;
-}
 
-.logo-image {
-  max-width: 80%;
-}
-
-#formulario_de_cadastro {
-  margin-bottom: 20px;
-}
-
-.form-control {
-  margin-bottom: 20px;
-}
+/* Conteúdos */
 
 label {
-  display: block;
-  margin-bottom: 5px;
-  color: #000000;
+  text-align: left;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"],
-select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+#mostra_senha {
+  font-family: Arial;
+  font-size: smaller;
 }
 
-small {
-  display: none;
+#input_senha {
+  margin-left: -320px;
+}
+
+li#tituloArea {
+  font-weight: bold;
+  color: #255885;
+}
+
+.feedback {
   color: red;
+  font-size: smaller;
 }
 
-.button-container {
-  text-align: center;
+ul {
+  list-style-type: none;
+  padding-bottom: 2.5%;
+  text-align: left;
 }
 
-button {
-  padding: 10px 20px;
-  background-color: #4aa4ee;
+li {
+  padding-bottom: 0.5%;
+}
+
+input {
+  font-family: Arial;
+  font-size: medium;
+  padding: 1%;
+  width: 98%;
+  background-color: #DEE3E7;
   border: none;
+}
+
+select {
+  font-family: Arial;
+  font-size: medium;
+  padding: 1%;
+  background-color: #03738C;
+  color: white;
+
+}
+
+#resetar {
+  font-family: Arial;
+  font-size: medium;
+  background-color: #DEE3E7;
+  border: none;
+  padding: 0%;
+  width: auto;
+}
+
+
+/* Botões */
+
+#cadastrar {
+  padding: 10px 60px;
+  margin-left: 20px;
+  background-color: #255885;
   color: #fff;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-family: "Arial"; 
+  font-size: 20px;
+  margin: 1%;
 }
 
-button:hover {
-  background-color: #266bb8;
+#voltar{
+  padding: 10px 60px;
+  margin-left: 20px;
+  background-color: #40A8C4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Arial"; 
+  font-size: 20px;
+  margin: 1%;
 }
 
-button[type="submit"] {
-  background-color: #255885;
-  width: 100%;
-  margin-bottom: 10px; /* Adiciona espaço abaixo do botão Cadastrar */
+#cadastrar:hover {
+  background-color: #03738C;
 }
 
-button[type="submit"]:hover {
-  background-color: #0081cc;
-}
-
-button[type="reset"] {
-  background-color: #ccc;
-  margin-left: 10px;
-}
-
-.button-container button[type="reset"]:hover {
-  background-color: #999;
+#voltar:hover {
+  background-color: #04D9D9;
 }

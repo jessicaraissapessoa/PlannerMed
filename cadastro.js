@@ -1,35 +1,10 @@
-const form = document.getElementById('form');
-const username = document.getElementById('username');
-const login =document.getElementById('login');
-const email = document.getElementById('email');
+const form = document.getElementById('form_login');
+const email = document.getElementById('email'); 
 const password = document.getElementById('password');
-const passwordtwo = document.getElementById('passwordtwo');
 
-username.addEventListener('input', checkUsername);
-login.addEventListener('input', checkLogin);
 email.addEventListener('input', checkEmail);
 password.addEventListener('input', checkPassword);
-passwordtwo.addEventListener('input', checkPasswordTwo);
 
-function checkUsername() {
-    const usernameValue = username.value.trim();
-
-    if (usernameValue === '') {
-        setErrorFor(username, 'Preencha esse campo');
-    } else {
-        setSuccessFor(username);
-    }
-}
-
-function checkLogin() {
-    const loginValue = login.value.trim();
-
-    if (loginValue === '') {
-        setErrorFor(login, 'Preencha esse campo');
-    } else {
-        setSuccessFor(login);
-    }
-}
 
 function checkEmail() {
     const emailValue = email.value.trim();
@@ -48,23 +23,10 @@ function checkPassword() {
 
     if (passwordValue === '') {
         setErrorFor(password, 'Preencha esse campo');
-    } else if (passwordValue.length < 8) {
-        setErrorFor(password, 'Senha deve ter mais que 8 caracteres');
+    } else if (passwordValue.length < 4) {
+        setErrorFor(password, 'Preencha esse campo');
     } else {
         setSuccessFor(password);
-    }
-}
-
-function checkPasswordTwo() {
-    const passwordValue = password.value.trim();
-    const passwordtwoValue = passwordtwo.value.trim();
-
-    if (passwordtwoValue === '') {
-        setErrorFor(passwordtwo, 'Preencha esse campo');
-    } else if (passwordValue !== passwordtwoValue) {
-        setErrorFor(passwordtwo, 'Senhas não tão iguais');
-    } else {
-        setSuccessFor(passwordtwo);
     }
 }
 
@@ -73,12 +35,12 @@ function setErrorFor(input, message) {
     const small = formControl.querySelector('small');
 
     small.innerText = message;
-    formControl.className = 'form-control error';
+    formControl.className = 'form_control_login error';
 }
 
 function setSuccessFor(input) {
     const formControl = input.parentElement;
-    formControl.className = 'form-control success';
+    formControl.className = 'form_control_login success';
 }
 
 function isEmail(email) {

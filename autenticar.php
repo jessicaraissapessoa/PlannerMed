@@ -21,7 +21,8 @@ if ($login == '' && $senha == '') {
         header("location: principal.php");
         
     }else{
-    header("location: login.php");
+        echo "<script>alert('Login ou senha inválidos')</script>";
+        echo "<script>window.location.href='login.php'</script>";
     }
 }
 ?>

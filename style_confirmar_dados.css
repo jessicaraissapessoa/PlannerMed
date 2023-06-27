@@ -1,6 +1,7 @@
 * {
   padding: 0%;
   margin: 0%;
+  font-family: Arial;
 }
 
 body {
@@ -16,14 +17,128 @@ body {
 
 .box-one {
   background-color: #ffffff;
-  width: 30%; /* Ajuste o valor da largura em relação ao contêiner pai */
-  height: 60%; /* Ajuste o valor da altura em relação ao contêiner pai */
+  width: 500px;
+  height: auto;   
   margin: 0 auto;
   padding: 20px;
-  text-align: center;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+img {
+  margin: auto;
+  display: block;
+  width: 90%;
+  margin-bottom: 10%;
+}
+
+/* Formulário */
+
+label {
+  text-align: left;
+}
+
+li#tituloArea {
+  font-weight: bold;
+  color: #255885;
+}
+
+.feedback {
+  color: red;
+  font-size: smaller;
+}
+
+ul {
+  list-style-type: none;
+  padding-bottom: 2.5%;
+  text-align: left;
+}
+
+li {
+  padding-bottom: 0.5%;
+}
+
+input {
+  font-family: Arial;
+  font-size: medium;
+  padding: 1%;
+  width: 98%;
+  background-color: #DEE3E7;
+  border: none;
+}
+
+select {
+  font-family: Arial;
+  font-size: medium;
+  padding: 1%;
+  background-color: #03738C;
+  color: white;
+
+}
+
+#resetar {
+  font-family: Arial;
+  font-size: medium;
+  background-color: #DEE3E7;
+  border: none;
+  padding: 0%;
+  width: auto;
+}
+
+
+/* Botões */
+
+/* Botões */
+
+#cadastrar {
+  padding: 10px 60px;
+  margin-left: 20px;
+  background-color: #255885;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Arial"; 
+  font-size: 20px;
+  margin: 1%;
+}
+
+#voltar{
+  padding: 10px 60px;
+  margin-left: 20px;
+  background-color: #40A8C4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Arial"; 
+  font-size: 20px;
+  margin: 1%;
+}
+
+#cadastrar:hover {
+  background-color: #03738C;
+}
+
+#voltar:hover {
+  background-color: #04D9D9;
+}
+
+
+
+
+
+
+
+/*
+
+
+
+p {
+  font-family: Arial;
+}
+
+
 
 .box-logo {
   margin-bottom: 3%;
@@ -35,24 +150,24 @@ body {
 }
 
 .form-control {
-  margin-bottom: 2%;
+  margin-bottom: 10px;
 }
 
 .form-control label {
   display: block;
   font-family: Arial;
-  font-size: 24px;
+  font-size: 24px;  
 }
 
 .form-control input[type="email"],
 .form-control input[type="text"],
 .form-control input[type="password"]{
-  width: 90%;
-  height: 35px;
-  padding: 1%;
-  border-radius: 5%;
+  width: 70%;
+  height: 50%;  
+  padding: 5px;
+  border-radius: 3px;
   border: 1px solid #ccc; 
-  background-color: #DEE3E7; 
+  background-color: #DEE3E7;
 }
 
 button[type="submit"] {
@@ -76,4 +191,8 @@ button[type="submit"] {
 
 .input-box a {
  color: #255885;
+}
+
+button[type="submit"]:hover {
+  background-color: #0081cc;
 }
