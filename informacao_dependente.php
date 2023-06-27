@@ -120,7 +120,7 @@
     </div>
 
     <div class="box-onde">
-      <h3>Medicamentos e Horários Cadastrados:</h3>
+      <br><h3>Medicamentos e Horários Cadastrados:</h3>
       <?php
       if (mysqli_num_rows($query_horario) > 0) {
         echo "<table>";
